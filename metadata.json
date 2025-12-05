@@ -1,0 +1,5 @@
+{
+  "name": "DragonFire: Dice Legends",
+  "description": "A retro-styled RPG battle simulator inspired by classic handheld games. Feature Dragon Dice mechanics, real-time turn timers, and dynamic AI-narrated combat using Gemini.",
+  "requestFramePermissions": []
+}

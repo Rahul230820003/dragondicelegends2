@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DragonFire: Dice Legends</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Press Start 2P', cursive;
+        background-color: #202020;
+        color: white;
+        image-rendering: pixelated;
+      }
+      .scanlines {
+        background: linear-gradient(
+          to bottom,
+          rgba(255,255,255,0),
+          rgba(255,255,255,0) 50%,
+          rgba(0,0,0,0.2) 50%,
+          rgba(0,0,0,0.2)
+        );
+        background-size: 100% 4px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 50;
+      }
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #333; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #ef4444; 
+      }
+
+      /* Animations */
+      @keyframes shake {
+        0%, 100% { transform: translateX(0); filter: brightness(1); }
+        25% { transform: translateX(-6px) rotate(-5deg); filter: brightness(2) sepia(1) saturate(5) hue-rotate(-50deg); }
+        75% { transform: translateX(6px) rotate(5deg); }
+      }
+      @keyframes heavy-shake {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        10% { transform: translate(-10px, -10px) rotate(-10deg); filter: brightness(3); }
+        20% { transform: translate(10px, 10px) rotate(10deg); }
+        30% { transform: translate(-10px, 10px) rotate(-10deg); filter: invert(1); }
+        40% { transform: translate(10px, -10px) rotate(10deg); }
+        50% { transform: translate(-10px, 0) rotate(-10deg); filter: brightness(2); }
+        100% { transform: translate(0, 0) rotate(0deg); }
+      }
+      @keyframes lunge-right {
+        0% { transform: translateX(0) translateY(16px); }
+        50% { transform: translateX(40px) translateY(16px) scale(1.1); }
+        100% { transform: translateX(0) translateY(16px); }
+      }
+      @keyframes lunge-left {
+        0% { transform: translate(0, 0); }
+        50% { transform: translate(-40px, 10px) scale(1.1); }
+        100% { transform: translate(0, 0); }
+      }
+      @keyframes spawn {
+          0% { opacity: 0; filter: brightness(0); transform: scale(0.1); }
+          50% { opacity: 1; filter: brightness(100); transform: scale(1.2); }
+          100% { opacity: 1; filter: brightness(1); transform: scale(1); }
+      }
+      @keyframes flash-white {
+        0% { opacity: 0; }
+        10% { opacity: 0.8; }
+        100% { opacity: 0; }
+      }
+
+      .animate-shake { animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both; }
+      .animate-heavy-shake { animation: heavy-shake 0.5s cubic-bezier(.36,.07,.19,.97) both; }
+      .animate-lunge-right { animation: lunge-right 0.3s ease-out; }
+      .animate-lunge-left { animation: lunge-left 0.3s ease-out; }
+      .animate-spawn { animation: spawn 0.8s ease-out forwards; }
+      .animate-flash { animation: flash-white 0.3s ease-out forwards; }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
